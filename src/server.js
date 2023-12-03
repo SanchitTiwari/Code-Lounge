@@ -5,8 +5,8 @@ const { v4: uuidv4 } = require('uuid');
 const app = express();
 const httpServer = require("http").createServer(app);
 const io = require("socket.io")(httpServer);
-const { createClient } = require('redis');
-const redisAdapter = require('@socket.io/redis-adapter');
+//const { createClient } = require('redis');
+//const redisAdapter = require('@socket.io/redis-adapter');
 
 const { ExpressPeerServer } = require("peer");
 const peerServer = ExpressPeerServer(httpServer, {
@@ -15,21 +15,22 @@ const peerServer = ExpressPeerServer(httpServer, {
 
 app.use("/peerjs", peerServer);
 
-const pubClient = createClient({
-host: process.env.REDIS_ENDPOINT || 'localhost',
-port: process.env.REDIS_PORT || 6379
- });
+// const pubClient = createClient({
+//     host: process.env.REDIS_ENDPOINT || 'localhost',
+//     port: process.env.REDIS_PORT || 6379
+// });
 
 
- if (process.env.REDIS_PASSWORD) {
-    pubClient.auth(process.env.REDIS_PASSWORD);
- }
+// if (process.env.REDIS_PASSWORD) {
+//     pubClient.auth(process.env.REDIS_PASSWORD);
+// }
 
 
- const subClient = pubClient.duplicate();
- io.adapter(redisAdapter(pubClient, subClient));
+// const subClient = pubClient.duplicate();
+// io.adapter(redisAdapter(pubClient, subClient));
 
-
+// //beware
+// app.use('/public', express.static('../public'));
 
 // Define paths for Express Config
 const publicDirectoryPath = path.join(__dirname,'../public')
@@ -84,12 +85,12 @@ io.on("connection", socket => {
 
      socket.on("join-room", (roomId, userId, userName) => {
         socket.join(roomId);
-        socket.to(roomId).broadcast.emit("user-connected", userId);
+        //socket.to(roomId).broadcast.emit("user-connected", userId);
         socket.broadcast.to(roomId).emit("user-connected", userId);
-        socket.on("message", (message) => {
-        io.to(roomId).emit("createMessage", message, userName);
-        console.log(userName)
-        });
+        // socket.on("message", (message) => {
+        // io.to(roomId).emit("createMessage", message, userName);
+        // console.log(userName)
+        // });
     });
 
     socket.on("message", (data) => {
