@@ -175,14 +175,23 @@ window.onload = function () {
       });
     });
 
-  const connectToNewUser = (userId, stream) => {
+const connectToNewUser = (userId, stream) => {
+  try {
     const call = peer.call(userId, stream);
     const video = document.createElement("video");
     video.id = userId;
+    
     call.on("stream", (userVideoStream) => {
       addVideoStream(video, userVideoStream);
     });
-  };
+
+    call.on("error", (err) => {
+      console.error(`Error in call with user ${userId}:`, err);
+    });
+  } catch (error) {
+    console.error(`Error connecting to user ${userId}:`, error);
+  }
+};
 
   peer.on("open", (id) => {
     socket.emit("join-room", ROOM_ID, id, user);
