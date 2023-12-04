@@ -155,8 +155,8 @@ window.onload = function () {
   
 const peer = new Peer(undefined, {
   path: '/peerjs',
-  host: 'code-lounge.onrender.com',
-  port: 10000,
+  host: '/',
+  port: 3000,
 });
   
   let myVideoStream;
