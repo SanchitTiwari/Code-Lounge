@@ -40,10 +40,15 @@ window.onload = function () {
     ul.appendChild(li);
   }
 
-  function removeElement(id) {
-    var elem = document.getElementById(id);
+ function removeElement(id) {
+  var elem = document.getElementById(id);
+  if (elem && elem.parentNode) {
     return elem.parentNode.removeChild(elem);
+  } else {
+    console.error("Element with id '" + id + "' not found or has no parent node.");
   }
+}
+
 
   function applyLocalChanges() {
     if (keypressed) {
