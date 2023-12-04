@@ -151,12 +151,12 @@ window.onload = function () {
   const myVideo = document.createElement("video");
   myVideo.muted = true;
 
-  var peer = new Peer(undefined, {
-    path: "/peerjs",
-    host: "/",
-    port: "10000",
+  const host = 'https://code-lounge.onrender.com/';
+  const peer = new Peer(undefined, {
+    path: '/peerjs',
+    host: host,
+    port: location.protocol === 'https:' ? 443 : 80, // Adjust the port based on the protocol
   });
-
   let myVideoStream;
   navigator.mediaDevices
     .getUserMedia({
