@@ -153,10 +153,11 @@ window.onload = function () {
   const myVideo = document.createElement("video");
   myVideo.muted = true;
   
-const peer = new Peer(undefined, {
+const peer = new Peer('PeerID', {
+  secure: true,
   path: '/peerjs',
   host: 'code-lounge.onrender.com',
-  port: 443,
+  port: 9000,
 });
   
   let myVideoStream;
