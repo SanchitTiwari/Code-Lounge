@@ -157,7 +157,7 @@ const peer = new Peer('PeerID', {
   secure: true,
   path: '/peerjs',
   host: 'code-lounge.onrender.com',
-  port: 9000,
+  port: 10000,
 });
   
   let myVideoStream;
