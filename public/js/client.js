@@ -156,6 +156,7 @@ window.onload = function () {
 const peer = new Peer(undefined, {
   secure: true,
   path: '/peerjs',
+  host: 'code-lounge.onrender.com',
   port: 443,
 });
   
