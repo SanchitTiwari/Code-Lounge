@@ -8,6 +8,7 @@ const io = require('socket.io')(httpServer);
 const { ExpressPeerServer } = require('peer');
 const peerServer = ExpressPeerServer(httpServer, {
   debug: true,
+  allow_discovery: true,
 });
 
 app.use('/peerjs', peerServer);
