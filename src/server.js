@@ -107,6 +107,6 @@ io.on("connection", socket => {
 });
 
 
-httpServer.listen(process.env.PORT || 3000  , () =>{
-    console.log('Server is up on port '+ 3000);
+httpServer.listen(process.env.PORT || 443  , () =>{
+    console.log('Server is up on port '+ 443);
 });
