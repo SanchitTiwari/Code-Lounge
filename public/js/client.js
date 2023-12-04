@@ -17,7 +17,7 @@ window.onload = function () {
     styleActiveLine: true,
     lineNumbers: true,
     matchBrackets: true,
-    theme: 'cobalt',
+    theme: 'dracula',
     mode: "text/x-csrc",
   });
 
