@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
+const cors = require('cors');
 
 const app = express();
 const httpServer = require("http").createServer(app);
@@ -13,8 +14,9 @@ const peerServer = ExpressPeerServer(httpServer, {
   debug: true,
   allow_discovery: true,
 });
-
+app.use(cors());
 app.use("/peerjs", peerServer);
+
 
 // const pubClient = createClient({
 //     host: process.env.REDIS_ENDPOINT || 'localhost',
