@@ -179,8 +179,8 @@ const peer = new Peer(undefined, {
       });
   
       socket.on("user-connected", (userId) => {
-         connectToNewUser(userId, stream);
-        setTimeout(connectToNewUser,1000,userId,stream)
+        connectToNewUser(userId, stream);
+        setTimeout(1000,userId,stream)
       });
     });
   
