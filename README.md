@@ -46,7 +46,7 @@ This is an example of how to list things you need to use the software and how to
    npm run dev
    ```
 
-#### Open in the http://localhost:3000 to open the instance of the app and copy the link in the other tab and see the magic. 
+#### Open in the http://localhost:3000 to open the instance of the app and copy the link in the other tab to see the app working
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
