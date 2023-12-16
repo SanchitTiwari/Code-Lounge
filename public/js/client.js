@@ -19,7 +19,7 @@ window.onload = function () {
               theme: 'dracula',
               mode: "text/x-csrc",
           }); 
-    var minLines = 14;
+    var minLines = 2;
     var startingValue = '';
     for (var i = 0; i < minLines; i++) {
       startingValue += '\n';
