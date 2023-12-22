@@ -8,7 +8,7 @@ Major frameworks/libraries used to bootstrap your project.
 2) CSS 
 3) JavaScript
 4) NodeJs
-5) Expressjs
+5) Express.js
 6) Socket.io
 7) Peerjs
 8) Uuid
